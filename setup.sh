@@ -5,7 +5,7 @@ RESOURCE_GROUP="housing_prices"
 RESOURCE_PROVIDER="Microsoft.MachineLearning"
 REGION="francecentral"
 WORKSPACE_NAME="mlw-housing_prices"
-COMPUTE_INSTANCE="ci"
+COMPUTE_INSTANCE="ci_all"
 COMPUTE_CLUSTER="aml-cluster"
 
 # Register the Azure Machine Learning resource provider in the subscription
