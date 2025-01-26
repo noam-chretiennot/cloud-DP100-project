@@ -1,0 +1,29 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+name: train_model
+display_name: Train a SVM model
+version: 1
+type: command
+inputs:
+  training_data: 
+    type: uri_folder
+  recurrence_weight:
+    type: number
+    default: 3.8
+  c:
+    type: number
+    default: 0.1000
+  gamma:
+    type: number
+    default: 0.1035
+outputs:
+  model:
+    type: mlflow_model
+code: ../src
+environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
+command: >-
+  python train-model.py 
+  --training_data ${{inputs.training_data}} 
+  --recurrence_weight ${{inputs.recurrence_weight}} 
+  --c ${{inputs.c}} 
+  --gamma ${{inputs.gamma}} 
+  --model ${{outputs.model}}

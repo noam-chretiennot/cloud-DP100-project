@@ -1,11 +1,11 @@
 #! /usr/bin/sh
 
 # Set the necessary variables
-RESOURCE_GROUP="housing_prices"
+RESOURCE_GROUP="breast_cancer"
 RESOURCE_PROVIDER="Microsoft.MachineLearning"
 REGION="francecentral"
-WORKSPACE_NAME="mlw-housing_prices"
-COMPUTE_INSTANCE="ci-housing-all"
+WORKSPACE_NAME="mlw-breast_cancer"
+COMPUTE_INSTANCE="ci-cancer-all"
 COMPUTE_CLUSTER="aml-cluster"
 
 # Register the Azure Machine Learning resource provider in the subscription
