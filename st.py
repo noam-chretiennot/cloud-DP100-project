@@ -6,9 +6,11 @@ import streamlit as st
 from dotenv import load_dotenv
 import os
 
+# get the API key
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
+# elements for the form
 st.title("Breast Cancer Recurrence Prediction")
 
 age = st.slider("Age", 20, 90)
@@ -26,12 +28,13 @@ irradiat = st.selectbox("Irradiat",
                         ["yes", "no"])
 deg_malig = st.slider("Degree of Malignancy", 1, 3)
 
+
 # submit the request using button
 if st.button("Submit"):
     # treat the data
-    age = age/10
-    tumor_size = tumor_size/5
-    inv_nodes = inv_nodes/3
+    age = age
+    tumor_size = tumor_size
+    inv_nodes = inv_nodes
     menopause = 1 if menopause == "lt40" else (2 if menopause == "ge40" else 3)
     node_caps = 1 if node_caps == "yes" else 0
     breast = 1 if breast == "left" else 0
@@ -77,6 +80,7 @@ if st.button("Submit"):
     # Make the POST request
     response = requests.post(endpoint_url, json=data, headers=headers, timeout=60)
 
+    # if the response is successful, display the result
     if response.status_code == 200:
         try:
             result = response.json()
