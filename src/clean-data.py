@@ -24,10 +24,10 @@ def get_data(path):
 # function that removes missing values
 def clean_data(df):
     df = df.dropna()
-    df["age"] = df["age"].apply(lambda x: int(x[0]))
+    df["age"] = df["age"].apply(lambda x: int(int(x.split("-")[0])))
     df["menopause"] = df["menopause"].apply(lambda x: 1 if x == "lt40" else (2 if x == "ge40" else 3))
-    df["tumor-size"] = df["tumor-size"].apply(lambda x: int(x[0]))
-    df["inv-nodes"] = df["inv-nodes"].apply(lambda x: int(x[0]))
+    df["tumor-size"] = df["tumor-size"].apply(lambda x: int(x.split("-")[0]))
+    df["inv-nodes"] = df["inv-nodes"].apply(lambda x: int(x.split("-")[0]))
     df["node-caps"] = df["node-caps"].apply(lambda x: 1 if x == "yes" else 0)
     df["breast"] = df["breast"].apply(lambda x: 1 if x == "left" else 0)
     df = pd.get_dummies(df, columns=["breast-quad"])
