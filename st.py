@@ -31,7 +31,7 @@ deg_malig = st.slider("Degree of Malignancy", 1, 3)
 
 # submit the request using button
 if st.button("Submit"):
-    # treat the data
+    # preprocess the data
     age = age
     tumor_size = tumor_size
     inv_nodes = inv_nodes

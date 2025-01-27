@@ -8,10 +8,10 @@ inputs:
     type: uri_folder
   recurrence_weight:
     type: number
-    default: 3.8
+    default: 3
   c:
     type: number
-    default: 0.1000
+    default: 1.0
   gamma:
     type: number
     default: 0.1035
